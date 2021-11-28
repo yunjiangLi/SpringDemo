@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <meta charset="UTF-8">
+    <title>CalculatorForPpi</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="width" placeholder="屏幕宽（像素）"><br>
+        <input type="text" id="height" placeholder="屏幕高（像素）"><br>
+        <input type="text" id="size" placeholder="屏幕尺寸（英寸）"><br>
+        <button type="button" id="submit">计算</button>
+        <br><label id="result"></label>
+    </form>
+    <script>
+        $("#submit").click(function (){
+            $.ajax({
+                url : "/v2/calculate",
+                type : "post",
+                data : {
+                    "width" : $("#width").val(),
+                    "height" : $("#height").val(),
+                    "size" : $("#size").val(),
+                },
+                error: function () {
+                    console.log("something error")
+                },
+                success : function (data){
+                    let json = JSON.parse(data);
+                    $("#result").text("屏幕像素密度为："+json["PPI"]+ " PPI");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

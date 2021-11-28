@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="type" value="this is type"></parameter>
+    <parameter name="version" value="this is version"></parameter>
+    <test verbose="1" preserve-order="true" name="E:\JAVA自动化笔记\接口自动化\XuniteTest">
+        <classes>
+            <class name="com.liyun.springboot.service.CalcculateForPpiServiceTest">
+            </class>
+        </classes>
+    </test>
+</suite>
